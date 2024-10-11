@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Шифр Цезаря</h1>
+    <div class="controls">
+        <label>
+            Сдвиг:
+            <input class="shiftNumber" value="0" type="number" name="shift" id="" oninput="this.style.width = (((this.value.length)) || 1) + 'ch';">
+        </label>
+        <button class="resetButton">Сбросить</button>
+    </div>
+    <textarea class="inputText" name="inputText" id="" rows="10" cols="116"></textarea>
+    <textarea class="outputText" disabled name="outputText" id="" rows="10" cols="116"></textarea>
+    <script src="script.js"></script>
+</body>
+</html>

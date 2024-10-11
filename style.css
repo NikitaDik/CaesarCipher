@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 40px;
+    background: rgb(243, 243, 243);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+:root {
+    --border-radius-value: 10px;
+    --box-shadow-value: -10px -10px 15px rgba(255, 255, 255, 0.5),
+    10px 10px 15px rgba(70, 70, 70, 0.12);
+    --light-gray: #c0c0c0;
+    --green: #34df3a;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input {
+    padding: 6px 12px;
+    border-radius: var(--border-radius-value);
+    border: 2px solid var(--light-gray);
+
+    &[type="number"] {
+        width: 8px;
+    }
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0; 
+}
+
+textarea {
+    padding: 6px 8px;
+    border-radius: var(--border-radius-value);
+    border: 2px solid var(--light-gray);
+    resize: none;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    box-shadow: var(--box-shadow-value);
+    padding: 20px;
+    border-radius: var(--border-radius-value);
+}
+
+
+.resetButton {
+    background: var(--green);
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    color: white;
+    font-style: 16px;
+    transition: all 0.2s;
+    border: none;
+    border-radius: var(--border-radius-value);
+
+    &:hover {
+        background: #26b12d;
+    }
+}

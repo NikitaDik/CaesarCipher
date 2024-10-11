@@ -25,12 +25,20 @@ const inputText = document.querySelector('.inputText');
 const outputText = document.querySelector('.outputText');
 const shiftNumber = document.querySelector('.shiftNumber');
 const resetButton = document.querySelector('.resetButton');
+const shiftDown = document.querySelector('.shiftDown');
+const shiftUp = document.querySelector('.shiftUp');
 
-inputText.addEventListener('input', () => {
+inputText.addEventListener('input', textUpdate)
+
+shiftNumber.addEventListener('input', textUpdate)
+
+shiftDown.addEventListener('click', () => {
+    shiftNumber.value = parseInt(shiftNumber.value) - 1;
     textUpdate();
 })
 
-shiftNumber.addEventListener('input', () => {
+shiftUp.addEventListener('click', () => {
+    shiftNumber.value = parseInt(shiftNumber.value) + 1;
     textUpdate();
 })
 
@@ -38,11 +46,13 @@ resetButton.addEventListener('click', () => {
     inputText.value = '';
     outputText.value = '';
     shiftNumber.value = 0;
+    textUpdate();
 })
 
 function textUpdate() {
     const shift = parseInt(shiftNumber.value) || 0;
     outputText.value = textEncrypt(inputText.value, shift);
+    shiftNumber.style.width = (((shiftNumber.value.length)) || 1) + 'ch';
 }
 
 function textEncrypt(text, shift) {
@@ -56,7 +66,9 @@ function symbolEncrypt(symbol, shift) {
         for (const languageKey in alphabets[alphabetsKey]) {
             const registr = alphabets[alphabetsKey][languageKey];
             if (registr.includes(symbol)) {
-                return registr[(registr.indexOf(symbol) + shift) % registr.length];
+                const alphabetLength = registr.length;
+                const indexOfSymbol = registr.indexOf(symbol);
+                return registr[(indexOfSymbol + shift + alphabetLength) % alphabetLength];
             }
         }
     }
